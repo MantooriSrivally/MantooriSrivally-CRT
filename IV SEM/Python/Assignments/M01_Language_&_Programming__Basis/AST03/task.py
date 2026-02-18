@@ -1,9 +1,13 @@
 def Student_Grade_System(name:str,n1: int,n2: int,n3: int) -> str:
    
-   average = (n1 + n2 + n3) / 3
-   status = "Pass" if average >= 40 else "Fail"
-   return f"Name: {name}, Average grade: {average:.2f}, Status: {status}"
-
+   avg = (n1 + n2 + n3) / 3
+   avg_truncated=int(avg*100)/100
+   if avg_truncated.is_integer():
+       avg_str=f"{avg_truncated:.1f}"
+   else:
+       avg_str=f"{avg_truncated:.2f}"
+   status="Pass" if avg_truncated>=40 else "fail"
+   return f"Average grade:{avg_str},Status:{status}"
 
 
 
