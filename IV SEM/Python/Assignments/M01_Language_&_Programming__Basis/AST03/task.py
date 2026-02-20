@@ -1,18 +1,16 @@
-def Student_Grade_System(name:str,n1: int,n2: int,n3: int) -> str:
-   
-   avg = (n1 + n2 + n3) / 3
-   avg_truncated=int(avg*100)/100
-   if avg_truncated.is_integer():
-       avg_str=f"{avg_truncated:.1f}"
-   else:
-       avg_str=f"{avg_truncated:.2f}"
-   status="Pass" if avg_truncated>=40 else "fail"
-   return f"Average grade:{avg_str},Status:{status}"
+def Student_Grade_System(name: str, n1: int, n2: int, n3: int) -> str:
+    avg = (n1 + n2 + n3) / 3
+    avg = int(avg * 100) / 100   # truncate to 2 decimals
 
+    if avg >= 40:
+        status = "Pass"
+    else:
+        status = "fail"
 
-
+    return f"Average grade: {avg}, Status: {status}"
 
 if __name__ == '__main__':
-    name = input()
-    n1,n2,n3 = list(map(int,input().split()))
-    print(Student_Grade_System(name,n1,n2,n3))
+    data = input().split()
+    name = data[0]
+    n1, n2, n3 = map(int, data[1:])
+    print(Student_Grade_System(name, n1, n2, n3))
